@@ -1,0 +1,7 @@
+1. What is SQL? What are relational databases?
+Structured query language (SQL) is a standard language for database creation and manipulation. 
+A relational database is a type of database. It uses a structure that allows us to identify and access data in relation to another piece of data in the database.
+
+
+4. What is a PDO in PHP? Why do we need to use prepared statements?
+A prepared statement or a parameterized statement is used to execute the same statement repeatedly with high efficiency and protect against SQL injections.
