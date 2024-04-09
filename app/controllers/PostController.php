@@ -42,12 +42,15 @@ class PostController
 
     public function getPosts($id) {
         header("Content-Type: application/json");
-        if ($id) {
-            //TODO 5-c i: get a post data by id
-        } else {
-            //TODO 5-a: get all posts
-        }
-
+        $postModel = new Post();
+        
+      if ($id) {
+        $posts = $postModel->getPostById($id);
+    } else {
+        $posts = $postModel->getAllPosts();
+    }
+    echo json_encode($posts);
+    
         exit();
     }
 
@@ -59,6 +62,8 @@ class PostController
         $postData = $this->validatePost($inputData);
 
         //TODO 5-b: save a post
+        // validate pos
+       $postId = $this->savePost($inputData);
 
         http_response_code(200);
         echo json_encode([
@@ -84,6 +89,15 @@ class PostController
 
         //TODO 5-c: update a post
 
+        $post = new Post();
+        $post->updatePost(
+            [
+                'id' => $id,
+                'title' => $inputData['title'],
+                'description' => $inputData['description'],
+            ]
+        );
+
         http_response_code(200);
         echo json_encode([
             'success' => true
@@ -98,6 +112,9 @@ class PostController
         }
 
         //TODO 5-d: delete a post
+        $post = new Post();
+        $post->deletePostById($id);
+        
 
         http_response_code(200);
         echo json_encode([
