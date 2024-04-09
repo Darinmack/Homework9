@@ -12,7 +12,9 @@
     <body>
 
         <div class="container posts-form margin-thirty">
-            <a href="http://localhost:8888" class="link">Home</a>
+            <a href= "http://localhost" class="link">Home</a>
+           <!-- "http://localhost:8888" --> 
+            
             <h2 class="margin-thirty">Edit post</h2>
             <form id="form-id">
                 <div class="form-group margin-twenty">
@@ -38,7 +40,8 @@
                 const urlArry = window.location.pathname.split("/")
                 const id = urlArry[2]
                 $.ajax({
-                    url: `http://localhost:8888/posts/${id}`,
+                    url: `http://localhost/posts/${id}`,
+                   // url: `http://localhost:8888/posts/${id}`,
                     type: "GET",
                     dataType: "json",
                     success: function (data) {
@@ -61,12 +64,14 @@
                         description,
                     }
                     $.ajax({
-                        url: `http://localhost:8888/posts/${id}`,
+                        url: `http://localhost/posts/${id}`,
+                       // url: `http://localhost:8888/posts/${id}`,
                         type: "PUT",
                         data: data,
                         dataType: "json",
                         success: function (data) {
-                            window.location.replace("http://localhost:8888");
+                            window.location.replace( /*"http://localhost:8888" */ `http://localhost`,
+                            );
                         },
                         error: function (data){
                             $('#title-error').html('')
