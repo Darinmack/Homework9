@@ -12,7 +12,7 @@
     <body>
 
         <div class="container posts-form margin-thirty">
-            <a href="http://localhost:8888" class="link">Home</a>
+            <a href="http://localhost" class="link">Home</a>
             <h2 class="margin-thirty">Add Post</h2>
             <form id="form-id">
                 <div class="form-group margin-twenty">
@@ -46,7 +46,8 @@
                         description,
                     }
                     $.ajax({
-                        url: `http://localhost:8888/posts`,
+                        url: `http://localhost/posts`,
+                       // url: `http://localhost:8888/posts`,
                         type: "POST",
                         data: data,
                         dataType: "json",
