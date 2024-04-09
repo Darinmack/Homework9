@@ -1,9 +1,13 @@
 <?php
+require_once "../app/core/Database.php";
 require_once "../app/models/Post.php";
 require_once "../app/controllers/PostController.php";
 
+
 //set our env variables
-$env = parse_ini_file('../.env');
+//$env = parse_ini_file('../.env');
+$env = parse_ini_file('../hw9.env');
+
 require '../app/core/config.php';
 
 use app\controllers\PostController;
