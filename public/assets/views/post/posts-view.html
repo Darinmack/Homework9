@@ -21,7 +21,8 @@
         <script>
             $(document).ready(function () {
                 $.ajax({
-                    url: `http://localhost:8888/posts`,
+                    url: `http://localhost/posts`,
+                   // url: `http://localhost:8888/posts`,
                     type: "GET",
                     dataType: "json",
                     success: function (data) {
