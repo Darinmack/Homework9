@@ -56,15 +56,24 @@ class PostController
 
     public function savePost() {
         $inputData = [
+            
             'title' => $_POST['title'] ? $_POST['title'] : false,
             'description' => $_POST['description'] ? $_POST['description'] : false,
         ];
         $postData = $this->validatePost($inputData);
 
         //TODO 5-b: save a post
-        // validate pos
-       $postId = $this->savePost($inputData);
+        
+        $post= new Post;
+        $post->savePost(
+            [
+               
+                'title' => $inputData['title'],
+                'description' => $inputData['description'],
+            ]
 
+            );
+    
         http_response_code(200);
         echo json_encode([
             'success' => true
@@ -82,13 +91,13 @@ class PostController
         parse_str(file_get_contents('php://input'), $_PUT);
 
         $inputData = [
+            
             'title' => $_PUT['title'] ? $_PUT['title'] : false,
             'description' => $_PUT['description'] ? $_PUT['description'] : false,
         ];
         $postData = $this->validatePost($inputData);
 
         //TODO 5-c: update a post
-
         $post = new Post();
         $post->updatePost(
             [
@@ -97,6 +106,9 @@ class PostController
                 'description' => $inputData['description'],
             ]
         );
+        
+
+    
 
         http_response_code(200);
         echo json_encode([
@@ -112,8 +124,14 @@ class PostController
         }
 
         //TODO 5-d: delete a post
+
         $post = new Post();
-        $post->deletePostById($id);
+        $post->deletePost(
+            [
+                'id' => $id,
+            ]
+        );
+       
         
 
         http_response_code(200);
