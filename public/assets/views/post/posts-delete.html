@@ -12,7 +12,8 @@
     <body>
 
         <div class="container posts-form margin-thirty">
-            <a href="http://localhost:8888" class="link">Home</a>
+
+            <a href="http://localhost" class="link">Home</a>
             <div id="delete-post-container" class="margin-thirty">
                 <h2 id="post-delete">Are you sure you want to delete </h2>
                 <div id="posts-data"></div>
@@ -26,7 +27,8 @@
                 const urlArry = window.location.pathname.split("/")
                 const id = urlArry[2]
                 $.ajax({
-                    url: `http://localhost:8888/posts/${id}`,
+                    url: `http://localhost/posts/${id}`,
+                   // url: `http://localhost:8888/posts/${id}`,
                     type: "GET",
                     dataType: "json",
                     success: function (data) {
@@ -42,11 +44,12 @@
                     const urlArry = window.location.pathname.split("/")
                     const id = urlArry[2]
                     $.ajax({
-                        url: `http://localhost:8888/posts/${id}`,
+                        url: `http://localhost/posts/${id}`,
+                       // url: `http://localhost:8888/posts/${id}`,
                         type: "DELETE",
                         dataType: "json",
                         success: function (data) {
-                            window.location.replace("http://localhost:8888");
+                            window.location.replace( /*"http://localhost:8888" */   `http://localhost`);
                         }
                     });
                 })
